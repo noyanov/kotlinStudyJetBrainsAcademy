@@ -1,0 +1,46 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    open class Tag(val name: String) {
+        val children = mutableListOf<Tag>()
+        fun <T : Tag> doInit(child: T, init: T.() -> Unit) {
+            // write your code here
+        }
+
+        override fun toString() =
+            "<$name>${children.joinToString("")}</$name>"
+    }
+
+    /* Do not change code below */
+    fun table(init: TABLE.() -> Unit): TABLE = TABLE().apply(init)
+
+    class TABLE : Tag("table") {
+        fun tr(init: TR.() -> Unit) = doInit(TR(), init)
+    }
+
+    class TR : Tag("tr") {
+        fun td(init: TD.() -> Unit) = doInit(TD(), init)
+    }
+
+    class TD : Tag("td")
+
+    fun main() {
+        val myTable = table {
+            tr {
+                for (i in 1..2) {
+                    td {
+                    }
+                }
+            }
+        }
+        println(myTable)
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20952#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Sat, 10 Sep 2022 19:51:01 UTC
+record: -1

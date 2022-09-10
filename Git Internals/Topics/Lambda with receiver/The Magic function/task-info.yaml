@@ -1,0 +1,20 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    fun String.magic(init: String.() -> String): String {
+       // Write your code here
+    }
+
+    fun main() {
+        val str = readLine()!!
+        val res = str.magic {
+            uppercase().reversed().dropLast(1)
+        }
+        println(res)
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/20955#comment
+status: Solved
+record: -1
